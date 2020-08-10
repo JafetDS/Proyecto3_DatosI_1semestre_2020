@@ -1,4 +1,4 @@
-package Dijkstra;
+package Estructuras;
 
 import java.util.*;
 

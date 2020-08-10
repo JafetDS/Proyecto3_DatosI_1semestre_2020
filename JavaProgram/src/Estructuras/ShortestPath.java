@@ -1,8 +1,6 @@
-package Dijkstra;
+package Estructuras;
 
-import java.util.*;
 import java.lang.*;
-import java.io.*;
 
 class ShortestPath {
     static final int V = 9;
@@ -30,7 +28,7 @@ class ShortestPath {
     }
 
 
-    void dijkstra(int graph[][], int src)
+    void dijkstra(Graph<Integer>, int src)
     {
         int dist[] = new int[V];
 
@@ -65,17 +63,16 @@ class ShortestPath {
     public static void main(String[] args)
     {
         /* Let us create the example graph discussed above */
-        int graph[][] = new int[][] {
-                { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
-                { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
-                { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
-                { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
-                { 0, 0, 0, 9, 0, 10, 0, 0, 0 },
-                { 0, 0, 4, 14, 10, 0, 2, 0, 0 },
-                { 0, 0, 0, 0, 0, 2, 0, 1, 6 },
-                { 8, 11, 0, 0, 0, 0, 1, 0, 7 },
-                { 0, 0, 2, 0, 0, 0, 6, 7, 0 } };
+        Graph<Integer> g = new Graph<Integer>();
         ShortestPath t = new ShortestPath();
-        t.dijkstra(graph, 0);
+        g.addEdge(0, 1, false);
+        g.addEdge(0, 4, false);
+        g.addEdge(1, 2, false);
+        g.addEdge(1, 3, false);
+        g.addEdge(1, 4, false);
+        g.addEdge(2, 3, false);
+        g.addEdge(3, 4, false);
+
+        t.dijkstra(g, 0);
     }
 }
