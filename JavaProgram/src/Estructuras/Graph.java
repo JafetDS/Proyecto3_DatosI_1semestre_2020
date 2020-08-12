@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package DataStructure;
+package Estructuras;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  *
@@ -15,56 +9,51 @@ import java.util.LinkedList;
  * @param <e>
  */
 public class Graph<n,e> {
-    private LinkedList<Node<n>> nodeList;
-    private LinkedList<Edge<e>> edgeList;
+    private ListaSimple<Node<n>> nodeList;
+    private ListaSimple<Edge<e>> edgeList;
 
     public Graph() {
-        this.nodeList = new LinkedList<>();
-        this.edgeList = new LinkedList<>();
+        this.nodeList = new ListaSimple<>();
+        this.edgeList = new ListaSimple<>();
     }
     
-    
-    
-    
+
     public Node<n> getNode(n label){
-        for (Node<n> node: this.nodeList){
-            if (node.getLabel().equals(label)){
+        for (Node<n> node: this.nodeList)
+            if (node.getLabel().equals(label)) {
                 return node;
             }
-        }
         return null;
     }
 
-    public void setNodeList(LinkedList<Node<n>> nodeList) {
+    public void setNodeList(ListaSimple<Node<n>> nodeList) {
         this.nodeList = nodeList;
     }
 
-    public void setEdgeList(LinkedList<Edge<e>> edgeList) {
+    public void setEdgeList(ListaSimple<Edge<e>> edgeList) {
         this.edgeList = edgeList;
     }
     
     
     public Node<n> getNode(String ID){
-        for (Node<n> node: this.nodeList){
-            if (node.getID().equals(ID)){
+        for (Node<n> node: this.nodeList)
+            if (node.getID().equals(ID)) {
                 return node;
             }
-        }
         return null;
     }
     
     public Node<n> getNodename(String name){
-        for (Node<n> node: this.nodeList){
-            if (node.getLabel().equals(name)){
+        for (Node<n> node: this.nodeList)
+            if (node.getLabel().equals(name)) {
                 return node;
             }
-        }
         return null;
     }
     
-    public Node<n> getNode(int pos){
+    public NodoListasimple<Node<n>> getNode(int pos){
         
-        return this.nodeList.get(pos);
+        return this.nodeList.getNodo(pos);
         
     }
     
@@ -78,8 +67,8 @@ public class Graph<n,e> {
         return null;
     }
     
-    public Edge<e> getEdge(int pos){
-        return this.edgeList.get(pos);
+    public NodoListasimple<Edge<e>> getEdge(int pos){
+        return this.edgeList.getNodo(pos);
     }
     
     public Edge<e> getEdge(e Source, e Targe){
@@ -100,11 +89,11 @@ public class Graph<n,e> {
     
     public void addNode(n data){
         Node<n> node = new Node<>(data);
-        this.nodeList.add(node);   
+        this.nodeList.addFirst(node);
     }
     
     public void addNode(Node<n> node){
-        this.nodeList.add(node);   
+        this.nodeList.addFirst(node);
     }
     
     /**
@@ -117,17 +106,17 @@ public class Graph<n,e> {
         if (this.ifExistEdge(sourge, target)||ifExistEdge(target, sourge)){ 
             System.out.print("This edge already exists ");
         }else{
-            this.edgeList.add(edge);
+            this.edgeList.addFirst(edge);
         }
         
     }
 
 
-    public LinkedList<Node<n>> getNodeList() {
+    public ListaSimple<Node<n>> getNodeList() {
         return nodeList;
     }
 
-    public LinkedList<Edge<e>> getEdgeList() {
+    public ListaSimple<Edge<e>> getEdgeList() {
         return edgeList;
     }
     

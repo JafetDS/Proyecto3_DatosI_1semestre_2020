@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataStructure;
+package Estructuras;
 
 /**
  *
@@ -80,6 +80,4 @@ public class Node<T> {
     public void setSize(Integer size) {
         this.size = size;
     }
-    
-
 }

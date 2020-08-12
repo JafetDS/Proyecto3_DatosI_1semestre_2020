@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DataStructure;
+package Estructuras;
 
 /**
  *
@@ -66,8 +66,4 @@ public class Edge<T> {
         return null;
     }
 
-        
-    
-
-    
 }
