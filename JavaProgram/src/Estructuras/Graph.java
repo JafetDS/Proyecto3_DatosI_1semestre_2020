@@ -18,7 +18,7 @@ public class Graph<n,e> {
     }
     
 
-    public Node<n> getNode(n label){
+    public Node<n> getNode(String label){
         for (Node<n> node: this.nodeList)
             if (node.getLabel().equals(label)) {
                 return node;
@@ -36,10 +36,14 @@ public class Graph<n,e> {
     
     
     public Node<n> getNode(String ID){
-        for (Node<n> node: this.nodeList)
+	NodoListasimple<Node<n>> aux= this.nodeList.getHead();
+        while(aux!=null){
+	    Node<n> node = aux.getData();	
             if (node.getID().equals(ID)) {
                 return node;
             }
+	    aux = aux.getNext();
+        }
         return null;
     }
     
@@ -59,10 +63,13 @@ public class Graph<n,e> {
     
     
     public Edge<e> getEdge(String ID){
-        for (Edge<e> edge: this.edgeList){
+	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
+        while(aux!=null){
+	    Edge<e> edge = aux.getData();
             if (edge.getID().equals(ID)){
                 return edge;
             }
+	    aux = aux.getNext();
         }
         return null;
     }
@@ -71,20 +78,72 @@ public class Graph<n,e> {
         return this.edgeList.getNodo(pos);
     }
     
-    public Edge<e> getEdge(e Source, e Targe){
-        for (Edge<e>edge: this.edgeList){
-            if (edge.getSource().equals(Source) && edge.getTarget().equals(Targe)){
+    public Edge<e> getEdge(e Source, e Target){
+	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
+        while(aux!=null){
+	    Edge<e> edge = aux.getData();
+            if (edge.getSource().equals(Source) && edge.getTarget().equals(Target)){
                 return edge;
             }
-            
-            else if (edge.getSource().equals(Targe) && edge.getTarget().equals(Source)){
-                return edge;
-            }
+	    aux = aux.getNext();
+
         }
         System.out.print("The edge not exist");
         return null;  
     }
-    
+
+    public Edge<e> getminEdge(e Source){
+	Edge<e> min ;
+	Integer minN = 90000;
+	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
+        while(aux!=null){
+	    Edge<e> edge = aux.getData();
+            if (edge.getSource().equals(Source)){
+
+                if (minN>edge.getCost()){
+	            minN = edge.getCost();
+		    min = edge;
+                }
+
+            }
+	    aux = aux.getNext();
+
+        }
+        System.out.print("The edge not exist");
+        return min;  
+    }
+
+    public ListaSimple<Edge<e>> getListfromEdge(e Source){
+	ListaSimple<Edge<e>> List = new ListaSimple<>();
+	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
+        while(aux!=null){
+	    Edge<e> edge = aux.getData();
+            if (edge.getSource().equals(Source)){
+
+		List.addFirst(edge);
+            }
+	    aux = aux.getNext();
+
+        }
+        System.out.print("The edge not exist");
+        return List;  
+    }
+        
+    public ListaSimple<Edge<e>> getListToEdge(e Target){
+	ListaSimple<Edge<e>> Lista = new ListaSimple<>();
+	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
+        while(aux!=null){
+	    Edge<e> edge = aux.getData();
+            if (edge.getTarget().equals(Target)){
+
+		List.addFirst(edge);
+            }
+	    aux = aux.getNext();
+
+        }
+        System.out.print("The edge not exist");
+        return List;  
+    }        
    
     
     public void addNode(n data){
