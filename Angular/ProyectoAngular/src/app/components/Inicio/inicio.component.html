@@ -1,0 +1,74 @@
+ 
+ <ng-container *ngIf="!isLogged; else Ini">
+    <p>{{cedula}}</p>
+    <input type="text" [(ngModel)]= "cedula">
+    <button (click)= "isLogged = true" >Iniciar sesión</button>
+    <button>Registro</button>
+
+</ng-container>
+
+<ng-template #Ini>
+    <h1>Bienvenido Railspot</h1>
+    <br> 
+    <h2>Slecciona el origen</h2>
+    <select [(ngModel)] = "source">
+        <option value="Moravia">Moravia</option>
+        <option value="SanJose">SanJose</option>
+        <option value="Paraíso">Paraíso</option>
+        <option value="DulseNombre">DulseNombre</option>
+        <option value="TEC">TEC</option>
+        <option value="UCR">UCR</option>
+        <option value="Sabanilla">Sabanilla</option>
+        <option value="Cartago">Cartago</option>
+        <option value="Zapote">Zapote</option>
+        <option value="Heredia">Heredia</option>
+    </select>
+    <br> 
+    <h2>Slecciona el destino</h2>
+    <select [(ngModel)] = "target">
+        <option value="Moravia">Moravia</option>
+        <option value="SanJose">SanJose</option>
+        <option value="Paraíso">Paraíso</option>
+        <option value="DulseNombre">DulseNombre</option>
+        <option value="TEC">TEC</option>
+        <option value="UCR">UCR</option>
+        <option value="Sabanilla">Sabanilla</option>
+        <option value="Cartago">Cartago</option>
+        <option value="Zapote">Zapote</option>
+        <option value="Heredia">Heredia</option>
+    </select>
+    <br> 
+
+    <h2>Cantidad de boletos</h2>
+    <input type="number" (ngModel)= "cantidadTik">
+
+    <h2>Fecha</h2>
+    <input type="number" (ngModel)= "fecha">
+    <br> 
+ 
+    <h2>Precio Neto</h2>
+    <div>{{ precio }}</div>
+    <br> 
+
+    <h2>Precio con descuento</h2>
+    <div>{{ precioD }}</div>
+
+
+    <br> 
+
+    <h2>Descuento</h2>
+    <div>{{ descuento }}</div>
+    <p>%</p>
+ 
+    
+    <button (click)= "verprecio()">Precio</button>
+    <button (click)= "comprar()">comprar</button>
+
+    <br>
+    <button (click)= "isLogged = false" >Cerrar sesión</button>
+
+
+
+
+
+</ng-template>
