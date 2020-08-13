@@ -52,7 +52,7 @@ public class Edge<T> {
     }
 
     public void setCost(Integer weight) {
-        this.cost = Cost;
+        this.cost = weight;
     }
     
     public T getConnection(T connection){

@@ -16,15 +16,7 @@ public class Graph<n,e> {
         this.nodeList = new ListaSimple<>();
         this.edgeList = new ListaSimple<>();
     }
-    
 
-    public Node<n> getNode(String label){
-        for (Node<n> node: this.nodeList)
-            if (node.getLabel().equals(label)) {
-                return node;
-            }
-        return null;
-    }
 
     public void setNodeList(ListaSimple<Node<n>> nodeList) {
         this.nodeList = nodeList;
@@ -93,7 +85,7 @@ public class Graph<n,e> {
     }
 
     public Edge<e> getminEdge(e Source){
-	Edge<e> min ;
+	Edge<e> min = null;
 	Integer minN = 90000;
 	NodoListasimple<Edge<e>> aux= this.edgeList.getHead();
         while(aux!=null){
