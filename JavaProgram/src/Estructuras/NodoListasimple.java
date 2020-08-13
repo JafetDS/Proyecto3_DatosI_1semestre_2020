@@ -25,6 +25,7 @@ public class NodoListasimple<T> extends Nodo<T>{
         this.next=null;
         this.data=data;
     }
+
     /**
      * Método para obtener el dato almacenado en el Nodo
      * @return
@@ -33,11 +34,11 @@ public class NodoListasimple<T> extends Nodo<T>{
         return this.data;
 
     }
+
     /**
      * Método para establecer el nodo siguiente
      * @param Next
      */
-
     public void setNext(NodoListasimple<T> Next){
         this.next= Next;
 
@@ -51,15 +52,9 @@ public class NodoListasimple<T> extends Nodo<T>{
     /**
      * @return next
      */
-
-
     @Override
     public NodoListasimple<T> getNext() {
         return next;
     }
-
-
-
-
 
 }
